@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Human Development Index Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>HDI Predictor</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="country">Country Name:</label>
+                <input type="text" id="country" name="country" required placeholder="e.g., India">
+            </div>
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="text" id="year" name="year" required placeholder="e.g., 2022">
+            </div>
+            <button type="submit" class="btn">Predict HDI</button>
+        </form>
+        {% if prediction_text %}
+            <div class="result">
+                <h3>{{ prediction_text }}</h3>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
